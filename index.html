@@ -1,154 +1,77 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Selectors playground — практична CSS 2</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BuyList</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="script.js"></script>
 </head>
 <body>
-
-  <!--
-    Для практичної завдання 2: «Селектори без зайвих класів».
-
-    У HTML дозволено лише класи .intro і .container — більше класи
-    додавати НЕ МОЖНА. CSS-правила пишуться тільки через теги,
-    атрибути, псевдокласи і псевдоелементи.
-  -->
-
-  <div class="container">
-
-    <h1>Реєстрація на курс</h1>
-
-    <p class="intro">
-      Заповніть форму нижче, щоб зареєструватися на наш безкоштовний інтенсив
-      з веб-розробки. Поля з зірочкою — обов'язкові.
-    </p>
-
-    <p>
-      Курс триває 6 тижнів. Заняття — щовівторка і четверга. Після курсу
-      ви отримаєте сертифікат і доступ до закритого Telegram-чату випускників.
-    </p>
-
-    <h2>Особисті дані</h2><hr>
-
-    <form id="student-info">
-      <p>
-        <label>Ваше імʼя
-          <input type="text">
-        </label>
-      </p>
-      <p>
-        <label>Електронна пошта
-          <input type="email">
-        </label>
-      </p>
-      <p>
-        <label>Пароль (для особистого кабінету)
-          <input type="password">
-        </label>
-      </p>
-      <p>
-        <label>Вік
-          <input type="number">
-        </label>
-      </p>
-      <p>
-        <label>Бажана дата старту
-          <input type="date">
-        </label>
-      </p>
-      <p>
-        <label>Телефон (необовʼязково)
-          <input type="tel">
-        </label>
-      </p>
-      <p>
-        <button type="submit">Зареєструватися</button>
-      </p>
-    </form>
-
-    <h2>Що ви опануєте</h2><hr>
-
-    <p>Основні блоки програми курсу:</p>
-
-    <ul>
-      <li class="highlighted-skills">HTML і семантика веб-сторінки</li>
-      <li>CSS — оформлення, селектори, адаптивність</li>
-      <li>JavaScript — синтаксис, типи, функції</li>
-      <li>DOM — взаємодія з елементами сторінки</li>
-      <li>HTTP і робота з API</li>
-    </ul>
-
-    <p>А також додаткові інструменти:</p>
-
-    <ul>
-      <li class="highlighted-skills">Git і GitHub</li>
-      <li>DevTools і дебагінг</li>
-      <li>Базові основи TypeScript</li>
-      <li>Веб-безпека: XSS, CSRF, MitM</li>
-      <li>Деплой простих застосунків</li>
-    </ul>
-
-    <h2>Розклад занять</h2><hr>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Тиждень</th>
-          <th>Тема</th>
-          <th>Тривалість</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>HTML і CSS</td>
-          <td>4 заняття</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>JavaScript: основи</td>
-          <td>4 заняття</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>DOM і події</td>
-          <td>4 заняття</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>HTTP і AJAX</td>
-          <td>4 заняття</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>TypeScript і проєкт</td>
-          <td>4 заняття</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Безпека і залік</td>
-          <td>3 заняття + захист</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Відгуки випускників</h2>
-
-    <blockquote>
-      Я прийшла в курс без жодного коду в життя і вийшла з власним сайтом-портфоліо.
-      Найкращі шість тижнів моєї освіти.
-    </blockquote>
-
-    <blockquote>
-      Викладачі реально допомагають. Не залишають на самоті з помилками,
-      пояснюють «чому», а не лише «як».
-    </blockquote>
-
-    <p>Більше відгуків — на сторінці «Відгуки».</p>
-
-  </div>
-
+    <main class="container">
+        <section class="left-panel">
+            <form class="add-item-form">
+                <input type="text" placeholder="Назва товару">
+                <button type="button" class="btn btn-primary" data-tooltip="Додати новий товар">Додати</button>
+            </form>
+            <ul class="item-list">
+                <li class="item">
+                    <span class="item-name crossed">Помідори</span>
+                    <div class="item-controls">
+                        <span class="quantity-badge">2</span>
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="btn btn-default" data-tooltip="Позначити як не куплене">Не куплено</button>
+                    </div>
+                </li>
+                <li class="item">
+                    <span class="item-name">Печиво</span>
+                    <div class="item-controls">
+                        <button type="button" class="btn btn-danger-circle" data-tooltip="Зменшити кількість">−</button>
+                        <span class="quantity-badge">2</span>
+                        <button type="button" class="btn btn-success-circle" data-tooltip="Збільшити кількість">+</button>
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="btn btn-default" data-tooltip="Позначити як куплене">Куплено</button>
+                        <button type="button" class="btn btn-danger-square" data-tooltip="Видалити товар">×</button>
+                    </div>
+                </li>
+                <li class="item">
+                    <input type="text" class="item-edit-input" value="Сир">
+                    <div class="item-controls">
+                        <button type="button" class="btn btn-danger-circle disabled" data-tooltip="Мінімум 1" disabled>−</button>
+                        <span class="quantity-badge">1</span>
+                        <button type="button" class="btn btn-success-circle" data-tooltip="Збільшити кількість">+</button>
+                    </div>
+                    <div class="item-actions">
+                        <button type="button" class="btn btn-default" data-tooltip="Позначити як куплене">Куплено</button>
+                        <button type="button" class="btn btn-danger-square" data-tooltip="Видалити товар">×</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <aside class="right-panel">
+            <div class="stats-card">
+                <h2>Залишилося</h2>
+                <hr>
+                <div class="tags-container">
+                    <span class="tag">Печиво <span class="tag-count">2</span></span>
+                    <span class="tag">Сир <span class="tag-count">1</span></span>
+                </div>
+            </div>
+            <div class="stats-card">
+                <h2>Куплено</h2>
+                <hr>
+                <div class="tags-container">
+                    <span class="tag crossed">Помідори <span class="tag-count">2</span></span>
+                </div>
+            </div>
+        </aside>
+    </main>
+    <div class="student-badge">
+		<span class="badge-title">Buy List</span>
+		<span class="badge-created-by">Created by:</span>
+		<span class="badge-author">Krutkevych Ivan</span>
+	</div>
 </body>
 </html>
